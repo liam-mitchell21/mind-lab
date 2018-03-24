@@ -1,6 +1,3 @@
-%octave only
-pkg load NXT/RWTHMindstormsNXT
-
 %closing shit prior to running
 COM_CloseNXT('all')
 close all
