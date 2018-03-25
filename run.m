@@ -1,9 +1,9 @@
-%closing shit prior to running
+%% closing shit prior to running
 COM_CloseNXT('all')
 close all
 clear
 
-%connecting via usb
+%% connecting via usb
 hNXT = COM_OpenNXTEx('USB', '', 'MotorControlFilename', 'MotorControl22.rxe');
 COM_SetDefaultNXT(hNXT);
 NXT_SendKeepAlive('dontreply');
@@ -15,10 +15,13 @@ drivedist = 720; %degrees
 turndist = 220; %degrees
 
 %% run
-
+%{
 forward(drivepower,drivedist);
-Rightturn(turnpower,turndist);
+rightturn(turnpower,turndist);
 leftturn(turnpower,turndist);
 reverse(drivepower,drivedist);
+%}
+dist = ultrasonic(SENSOR_4);
 
-
+%% end
+close all
