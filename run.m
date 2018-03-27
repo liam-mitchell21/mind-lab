@@ -15,13 +15,12 @@ drivedist = 720; %degrees
 turndist = 220; %degrees
 
 %% run
-%{
+%
 forward(drivepower,drivedist);
 rightturn(turnpower,turndist);
 leftturn(turnpower,turndist);
 reverse(drivepower,drivedist);
 %}
-dist = ultrasonic(SENSOR_4);
 
 %% end
 close all
