@@ -1,4 +1,4 @@
-function [dist] = ultrasonic(port)
+function [dist] = ultrasonic_sensor(port)
 OpenUltrasonic(port)
 dist = GetUltrasonic(port);
 CloseSensor(port);
