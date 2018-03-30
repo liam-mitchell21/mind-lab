@@ -1,0 +1,10 @@
+modes
+
+1 teleop
+	bind drive to keys, bind speed to keys, write console output
+
+2 minimally actuated system 
+	wheels, bumper with touch, avoid obstacles
+	write if for bumper with turn, write 
+	check mindstorms IDE for ultrasonic
+
