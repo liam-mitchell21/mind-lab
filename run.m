@@ -13,14 +13,26 @@ drivepower = 60; %percent
 turnpower = 40; %percent
 drivedist = 720; %degrees
 turndist = 220; %degrees
+armpower = 50;
+armdist = 90;
 
 %% run
-%
+%{
 forward(drivepower,drivedist);
 rightturn(turnpower,turndist);
 leftturn(turnpower,turndist);
 reverse(drivepower,drivedist);
+
+dist = ultrasonic(SENSOR_4);
+light = light_sensor(SENSOR_1,'ACTIVE');
+value = touch_sensor();
+sound = sound_sensor(,'DB');
+
 %}
+armup(armpower,armdist);
+armdown(armpower,armdist);
+
+
 
 %% end
 close all
