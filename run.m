@@ -29,9 +29,10 @@ value = touch_sensor();
 sound = sound_sensor(,'DB');
 
 %}
-armup(armpower,armdist);
-armdown(armpower,armdist);
+%armup(armpower,armdist);
+%armdown(armpower,armdist);
 
+leftturn_2p(turnpower,turndist);
 
 
 %% end

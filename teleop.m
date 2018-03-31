@@ -13,7 +13,7 @@ NXT_SendKeepAlive('dontreply');
 %% defining params
 drivepower = 90; %percent
 turnpower = 70; %percent
-drivedist = 720; %degrees
+drivedist = 360; %degrees
 turndist = 220; %degrees
 
 %% run
@@ -22,25 +22,25 @@ a=1;
 while a == 1
     key = input('type, monkey ', 's');
     if key == 'q'
-        drivedist = floor(drivedist*1.2);
+        drivedist = drivedist*1.2;
         disp(['drivedist is ' num2str(drivedist)]);
     elseif key == 'e'
-        drivedist = floor(drivedist/1.2); 
-        disp(['drivedist is' num2str(drivedist)]);
+        drivedist = drivedist/1.2; 
+        disp(['drivedist is ' num2str(drivedist)]);
     elseif key == 'w'
-        forward(drivepower, drivedist);
+        forward(drivepower, floor(drivedist));
     elseif key == 's'
-        reverse(drivepower, drivedist);
+        reverse(drivepower, floor(drivedist));
     elseif key == 'a' 
-        leftturn(turnpower, turndist);
+        leftturn(turnpower, floor(turndist));
     elseif key == 'd' 
-        rightturn(turnpower,turndist);
+        rightturn(turnpower,floor(turndist));
     elseif key == 'z' 
-        turndist = floor(turndist*1.2);
-        disp(['turndist is' num2str(turndist)]);
+        turndist = turndist*1.2;
+        disp(['turndist is ' num2str(turndist)]);
     elseif key == 'x'
-        turndist = floor(turndist/1.2); 
-        disp(['turndist is' num2str(turndist)]);
+        turndist = turndist/1.2; 
+        disp(['turndist is ' num2str(turndist)]);
     end
     if key == 'k'
         break
