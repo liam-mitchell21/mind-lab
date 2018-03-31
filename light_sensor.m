@@ -1,6 +1,6 @@
 function [val] = light_sensor(port)
 OpenLight(port, 'ACTIVE')
-val = Getlight(port);
+val = GetLight(port);
 CloseSensor(port);
 end
 
