@@ -1,4 +1,4 @@
-function [] = leftturn_2p(turnpower,turndist)
+function [] = rightturn_2p(turnpower,turndist)
 %params
 leftwheel = MOTOR_C;
 rightwheel = MOTOR_B;

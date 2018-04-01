@@ -1,12 +1,17 @@
-function [] = armdown(armpower, armdist)
+function [stalled] = armdown(armpower, armdist)
 %params
 arm = MOTOR_A;
+stalled = 0;
 
 %driving objects
-mRev = NXTMotor(arm, 'Power', armpower, 'TachoLimit', armdist);
+mArm = NXTMotor(arm, 'Power', armpower, 'TachoLimit', armdist);
 
 %% run
-mRev.SendToNXT();
-mRev.WaitFor();
+mArm.SendToNXT();
+timedOut = WaitFor(mArm, 5);
+    if timedOut
+        mArm.Stop('off'); % this needed to "unlock" the motor
+        stalled = 1; 
+    end
 end
 

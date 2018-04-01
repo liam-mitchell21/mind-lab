@@ -1,5 +1,6 @@
-function [] = leftturn(turnpower,turndist)
+function [stalled] = rightturn(turnpower,turndist)
 %params
+stalled = 0;
 leftwheel = MOTOR_C;
 
 %driving objects
@@ -8,6 +9,10 @@ mTurnR.SpeedRegulation = false;
 
 %% run
 mTurnR.SendToNXT();
-mTurnR.WaitFor();
+timedOut = WaitFor(mTurnR, 5);
+    if timedOut
+        mTurnR.Stop('off'); % this needed to "unlock" the motor
+        stalled = 1;
+    end
 end
 

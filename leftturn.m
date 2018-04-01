@@ -1,13 +1,18 @@
-function [] = rightturn(turnpower,turndist)
+function [stalled] = leftturn(turnpower,turndist)
 %params
+stalled = 0;
 rightwheel = MOTOR_B;
 
 %driving objects
-mTurnR = NXTMotor(rightwheel, 'Power', turnpower, 'TachoLimit', turndist);
-mTurnR.SpeedRegulation = false; 
+mTurnL = NXTMotor(rightwheel, 'Power', turnpower, 'TachoLimit', turndist);
+mTurnL.SpeedRegulation = false; 
 
 %% run
-mTurnR.SendToNXT();
-mTurnR.WaitFor();
+mTurnL.SendToNXT();
+timedOut = WaitFor(mTurnL, 5);
+    if timedOut
+        mTurnL.Stop('off'); % this needed to "unlock" the motor
+        stalled = 1;
+    end
 end
 
