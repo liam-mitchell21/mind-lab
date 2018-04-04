@@ -6,7 +6,7 @@ clear
 warning('off','all');
 
 %% connecting
-hNXT = COM_OpenNXTEx('Any', '00:16:53:05:66:61', 'bluetooth.ini', 'MotorControlFilename', 'MotorControl22.rxe');
+hNXT = COM_OpenNXTEx('Bluetooth', '00:16:53:05:66:61', 'bluetooth.ini', 'MotorControlFilename', 'MotorControl22.rxe');
 COM_SetDefaultNXT(hNXT);
 NXT_SendKeepAlive('dontreply');
 

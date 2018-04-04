@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo /home/liamm/MATLAB/R2016b/bin/matlab
+sudo /usr/local/MATLAB/R2016b/bin/matlab
